@@ -1,14 +1,20 @@
 # NexumDB - AI-Native Database
 
-An innovative, open-source database that combines traditional SQL with AI-powered features including WHERE clause filtering, natural language queries, semantic caching, and reinforcement learning-based query optimization.
+An innovative, open-source database that combines traditional SQL with AI-powered features including advanced query operators, natural language processing, semantic caching, and reinforcement learning-based query optimization.
 
 ## Architecture
 
 - **Core System**: Rust-based storage engine using sled, with SQL parsing and intelligent execution
-- **AI Engine**: Python-based semantic caching, NL translation, and RL optimization using local models
+- **AI Engine**: Python-based semantic caching, NL translation, RL optimization, and model management using local models
 - **Integration**: PyO3 bindings for seamless Rust-Python integration
 
 ## Features
+
+### v0.3.0 - Advanced SQL & Persistent Learning
+- **Advanced SQL Operators**: LIKE (pattern matching), IN (list membership), BETWEEN (range queries)
+- **Query Modifiers**: ORDER BY (multi-column sorting), LIMIT (result truncation)
+- **Persistent RL Agent**: Q-table saves to disk, learning survives restarts
+- **Model Management**: Automatic LLM downloads from HuggingFace Hub
 
 ### v0.2.0 - Intelligent Query Engine
 - **WHERE Clause Filtering**: Full support for comparison (=, >, <, >=, <=, !=) and logical operators (AND, OR)
@@ -23,7 +29,6 @@ An innovative, open-source database that combines traditional SQL with AI-powere
 - Local-only execution (no cloud dependencies)
 - Persistent storage with sled
 - Query performance instrumentation
-- Production-ready release build
 
 ## Project Structure
 
@@ -87,12 +92,29 @@ INSERT INTO users (id, name, age) VALUES (1, 'Alice', 30), (2, 'Bob', 25);
 -- Simple query
 SELECT * FROM users;
 
--- With WHERE clause (NEW in v0.2.0)
+-- WHERE clause filtering (v0.2.0)
 SELECT * FROM users WHERE age > 25;
 SELECT * FROM users WHERE name = 'Alice' AND age >= 30;
+
+-- Advanced operators (v0.3.0)
+SELECT * FROM users WHERE name LIKE 'A%';  -- Pattern matching
+SELECT * FROM users WHERE age BETWEEN 20 AND 30;  -- Range query
+SELECT * FROM users WHERE name IN ('Alice', 'Bob');  -- List membership
+
+-- Query modifiers (v0.3.0)
+SELECT * FROM users ORDER BY age DESC;  -- Sort by age descending
+SELECT * FROM users ORDER BY age ASC LIMIT 5;  -- Top 5 by age
+
+-- Combined example
+SELECT * FROM products 
+WHERE price BETWEEN 100 AND 500 
+  AND category IN ('electronics', 'accessories')
+  AND name LIKE 'L%'
+ORDER BY price DESC 
+LIMIT 10;
 ```
 
-### Natural Language Queries (NEW in v0.2.0)
+### Natural Language Queries (v0.2.0+)
 
 ```
 nexumdb> ASK Show me all users
@@ -104,15 +126,35 @@ nexumdb> ASK Find users older than 25
 Translating: 'Find users older than 25'
 Generated SQL: SELECT * FROM users WHERE age > 25
 [Filtered results displayed]
+
+nexumdb> ASK Show top 3 products under $100 sorted by price
+Generated SQL: SELECT * FROM products WHERE price < 100 ORDER BY price ASC LIMIT 3
+[Results displayed]
 ```
 
 ### Performance Examples
 
-**WHERE Clause Filtering:**
+**Advanced SQL Operators (v0.3.0):**
 ```
-Query: SELECT * FROM products WHERE price > 100 AND price < 500
+Query: SELECT * FROM products WHERE name LIKE 'Test%'
 Filtered 15 rows using WHERE clause
-Query executed in 2.8ms
+Query executed in 2.9ms
+
+Query: SELECT * FROM items WHERE price BETWEEN 100 AND 500
+Filtered 42 rows using WHERE clause  
+Query executed in 3.1ms
+
+Query: SELECT * FROM orders WHERE status IN ('active', 'pending')
+Filtered 28 rows using WHERE clause
+Query executed in 2.7ms
+```
+
+**Query Modifiers:**
+```
+Query: SELECT * FROM products ORDER BY price DESC LIMIT 5
+Sorted 150 rows using ORDER BY
+Limited to 5 rows using LIMIT
+Query executed in 3.8ms
 ```
 
 **Semantic Caching:**
@@ -124,6 +166,7 @@ Second SELECT: Query executed in 0.04ms (cache hit - 60x faster)
 **RL Optimization (Automatic):**
 ```
 The RL agent learns optimal strategies automatically.
+Learning persists across restarts (v0.3.0).
 No configuration needed - just use the database!
 ```
 
