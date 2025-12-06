@@ -14,11 +14,11 @@ RUN apt-get update && apt-get install -y \
 	&& rm -rf /var/lib/apt/lists/*
 
 COPY Cargo.toml Cargo.lock ./
-COPY . .
+COPY src ./src 
 
 ENV PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
 
-RUN cargo build --release --manifest-path ./Cargo.toml
+RUN cargo build --release 
 
 # STAGE 2
 FROM debian:bookworm-slim
@@ -26,7 +26,7 @@ FROM debian:bookworm-slim
 RUN apt-get update && apt-get install -y \
 	python3 \
 	python3-venv \
-	libpython3.11 \
+	python3-dev \
 	libssl-dev \
 	ca-certificates \
 	&& rm -rf /var/lib/apt/lists/*
@@ -41,7 +41,12 @@ RUN python3 -m venv .venv && \
 	. .venv/bin/activate && \
 	pip install --no-cache-dir -r nexum_ai/requirements.txt
 
+RUN useradd --system --create-home --home-dir /app --shell /bin/bash nexumuser && \
+	chown -R nexumuser:nexumuser /app
+
 ENV PATH="/app/.venv/bin:$PATH"
 ENV VIRTUAL_ENV="/app/.venv"
+
+USER nexumuser
 
 CMD ["nexum"]

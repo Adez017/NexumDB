@@ -81,7 +81,7 @@ $ docker compose down
 
 ### Logs 
 
-```badh 
+```bash 
 $ docker-compose logs
 ```
 
