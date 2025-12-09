@@ -71,5 +71,8 @@ jobs:
           cache: "pip"
           cache-dependency-path: nexum_ai/requirements.txt
 
+      - name: Install dependencies
+        run: pip install -r nexum_ai/requirements.txt
+
       - name: Byte-compile nexum_ai
         run: python -m compileall nexum_ai
