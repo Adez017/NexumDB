@@ -171,7 +171,7 @@ class SemanticCache:
                     if all(key in entry for key in ['query', 'vector', 'result']):
                         valid_entries.append(entry)
                     else:
-                        print(f"Warning: Invalid cache entry found and removed")
+                        print("Warning: Invalid cache entry found and removed")
                 
                 self.cache = valid_entries
                 

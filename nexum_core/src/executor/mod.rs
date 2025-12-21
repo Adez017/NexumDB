@@ -192,7 +192,9 @@ impl Executor {
 
     pub fn save_cache(&self) -> Result<()> {
         if let Some(cache) = &self.cache {
-            cache.save_cache().map_err(|e| StorageError::WriteError(e.to_string()))?;
+            cache
+                .save_cache()
+                .map_err(|e| StorageError::WriteError(e.to_string()))?;
             println!("Semantic cache saved to disk");
         } else {
             println!("No semantic cache to save");
@@ -202,7 +204,9 @@ impl Executor {
 
     pub fn clear_cache(&self) -> Result<()> {
         if let Some(cache) = &self.cache {
-            cache.clear_cache().map_err(|e| StorageError::WriteError(e.to_string()))?;
+            cache
+                .clear_cache()
+                .map_err(|e| StorageError::WriteError(e.to_string()))?;
             println!("Semantic cache cleared");
         } else {
             println!("No semantic cache to clear");
@@ -212,7 +216,9 @@ impl Executor {
 
     pub fn get_cache_stats(&self) -> Result<String> {
         if let Some(cache) = &self.cache {
-            cache.get_cache_stats().map_err(|e| StorageError::ReadError(e.to_string()))
+            cache
+                .get_cache_stats()
+                .map_err(|e| StorageError::ReadError(e.to_string()))
         } else {
             Ok("No semantic cache enabled".to_string())
         }

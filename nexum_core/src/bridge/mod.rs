@@ -246,7 +246,7 @@ mod tests {
 
         // Test save/load cycle
         cache.save_cache().unwrap();
-        
+
         // Create new cache instance and verify persistence
         let cache2 = SemanticCache::with_cache_file("test_rust_cache.pkl").unwrap();
         let cached2 = cache2.get(query).unwrap();
