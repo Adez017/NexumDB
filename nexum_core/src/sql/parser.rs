@@ -62,9 +62,7 @@ impl Parser {
                 })
             }
             SqlStatement::Delete {
-                from,
-                selection,
-                ..
+                from, selection, ..
             } => {
                 let table = if let Some(from_clause) = from.first() {
                     from_clause.relation.to_string()
@@ -242,7 +240,10 @@ mod tests {
         let stmt = Parser::parse(sql).unwrap();
 
         match stmt {
-            Statement::Delete { table, where_clause } => {
+            Statement::Delete {
+                table,
+                where_clause,
+            } => {
                 assert_eq!(table, "users");
                 assert!(where_clause.is_some());
             }
@@ -256,7 +257,10 @@ mod tests {
         let stmt = Parser::parse(sql).unwrap();
 
         match stmt {
-            Statement::Delete { table, where_clause } => {
+            Statement::Delete {
+                table,
+                where_clause,
+            } => {
                 assert_eq!(table, "users");
                 assert!(where_clause.is_none());
             }

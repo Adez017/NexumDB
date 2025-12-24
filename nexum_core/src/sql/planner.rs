@@ -40,7 +40,10 @@ impl Planner {
                 rows: values.len(),
             },
             Statement::Select { table, columns, .. } => Plan::Select { table, columns },
-            Statement::Delete { table, where_clause } => Plan::Delete {
+            Statement::Delete {
+                table,
+                where_clause,
+            } => Plan::Delete {
                 table,
                 has_where: where_clause.is_some(),
             },
