@@ -3,6 +3,12 @@
 *.pdb
 nexumdb_data/
 
+# Model files (LLM weights)
+*.gguf
+*.ggml
+*.bin
+nexum_ai/models/
+
 # Python
 __pycache__/
 *.py[cod]
