@@ -1,3 +1,6 @@
+## 🚀 OSCG'26 Contributor Notice
+**NexumDB participates in the Open Source Contributor Games 2026!** High-quality PRs earn you points, recognition, and networking opportunities. Please follow our [contribution guidelines](../CONTRIBUTING.md) for maximum impact and ensure your submission meets OSCG quality standards.
+
 ## Summary
 <!-- Provide a clear and concise description of what this PR changes and why it's needed -->
 
@@ -60,14 +63,24 @@ Closes #(issue_number) <!-- Link related issues with "Closes #123" or "Fixes #45
 - [ ] Added/updated examples in `demo.sh` (if applicable)
 
 ## Pre-Merge Checklist
-- [ ] Self-reviewed my own code
-- [ ] Added tests covering my changes
+- [ ] Self-reviewed my own code thoroughly
+- [ ] Added comprehensive tests covering my changes
 - [ ] All existing tests pass locally
 - [ ] Updated relevant documentation
 - [ ] No uncommitted debug code or console logs
 - [ ] Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/)
 - [ ] Follows [Code of Conduct](CODE_OF_CONDUCT.md)
 - [ ] Branch is up to date with `main`
+
+## 🎯 OSCG'26 Quality Standards
+By submitting this PR, I confirm:
+- [ ] I have read and follow the [CONTRIBUTING.md](../CONTRIBUTING.md) guidelines
+- [ ] My contribution meets OSCG'26 quality standards for production-ready code
+- [ ] I have tested my changes thoroughly across different scenarios
+- [ ] I understand the zero-tolerance policy for low-quality submissions
+- [ ] My code follows established patterns and maintains consistency
+- [ ] I have considered performance, security, and maintainability impacts
+- [ ] I acknowledge this project's participation in OSCG'26 and uphold its reputation
 
 ## Additional Notes
 <!-- Any additional context, deployment notes, follow-up tasks, or breaking changes details -->

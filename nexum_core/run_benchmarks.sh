@@ -27,10 +27,10 @@ echo ""
 run_benchmark() {
     local bench_name=$1
     local description=$2
-    
+
     echo "Running $description..."
     echo "   Benchmark: $bench_name"
-    
+
     # Run the benchmark and capture output
     if cargo bench --bench "$bench_name" 2>&1 | tee "$RESULTS_DIR/${bench_name}_output.log"; then
         echo "   $description completed successfully"
@@ -71,7 +71,7 @@ cat > "$RESULTS_DIR/summary.md" << EOF
 ## Benchmark Suites Executed
 
 - Storage Engine Benchmarks
-- SQL Parser Benchmarks  
+- SQL Parser Benchmarks
 - Query Executor Benchmarks
 - Filter Evaluation Benchmarks
 
@@ -102,7 +102,7 @@ Open \`criterion/report/index.html\` in a web browser for:
 
 ### Key Metrics to Monitor
 - **Storage Write Throughput**: Target >10,000 ops/sec
-- **Storage Read Throughput**: Target >50,000 ops/sec  
+- **Storage Read Throughput**: Target >50,000 ops/sec
 - **SQL Parse Time**: Target <1ms for simple queries
 - **Query Execution**: Target >1,000 records/ms
 - **Filter Evaluation**: Target <1μs per row

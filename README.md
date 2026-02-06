@@ -7,6 +7,8 @@
 
 # NexumDB - AI-Native Database
 
+> 🚀 **OSCG'26 Participant**: NexumDB proudly participates in the Open Source Contributor Games 2026! High-quality contributions earn points, recognition, and networking opportunities. [Join us →](CONTRIBUTING.md)
+
 An innovative, open-source database that combines traditional SQL with AI-powered features including advanced query operators, natural language processing, semantic caching, and reinforcement learning-based query optimization.
 
 ## Architecture
@@ -252,6 +254,25 @@ No configuration needed - just use the database!
 - **AI-Powered**: Semantic caching using transformer embeddings
 - **Type-Safe**: Rust core with comprehensive error handling
 - **Well-Tested**: Full unit and integration test coverage
+
+## 🤝 Contributing to NexumDB
+
+**Ready to shape the future of AI-native databases?** NexumDB participates in the **Open Source Contributor Games 2026 (OSCG'26)**!
+
+### 🎯 Why Contribute?
+- **Impact**: Build cutting-edge database technology used by developers worldwide
+- **Recognition**: Earn OSCG points, badges, and community recognition
+- **Learning**: Master Rust, Python, AI/ML, and database internals
+- **Networking**: Connect with top developers, mentors, and industry professionals
+- **Career**: Gain valuable open-source experience for your portfolio
+
+### 🚀 Get Started
+1. Read our comprehensive [Contributing Guide](CONTRIBUTING.md)
+2. Check out [Good First Issues](https://github.com/aviralgarg05/NexumDB/labels/good%20first%20issue)
+3. Join our [Discussions](https://github.com/aviralgarg05/NexumDB/discussions) for questions
+4. Follow our [Code of Conduct](CODE_OF_CONDUCT.md)
+
+**Quality First**: We maintain high standards and provide mentorship to help you succeed. Every contribution matters, from bug fixes to major features!
 
 ## License
 
